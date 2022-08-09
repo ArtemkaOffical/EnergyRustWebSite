@@ -1,0 +1,22 @@
+@media (max-width: 1200px) {  }
+
+@media (max-width: 992px) {  }
+
+@media (max-width: 768px) { .category {width: 125px;} }
+
+@media (max-width: 576px)
+{
+    .main{flex-direction: column-reverse}
+    .leftBar{width: auto}
+    .mainContent{width: auto;margin-bottom: 15px}
+    .Balance{flex-direction: column}
+    .SteamID{flex-direction: column}
+    .SteamAvatar{height: 30%}
+    .ProfileContent{justify-content: space-between;}
+    .mm li {margin-right: 5px}
+    .list_category{flex-wrap: wrap}
+    .list_category .category{margin:5px}
+    .category form li {font-size: 15px;}
+
+
+}

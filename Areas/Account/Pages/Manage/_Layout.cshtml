@@ -1,0 +1,21 @@
+﻿@{ Layout = "~/Pages/Shared/_Layout.cshtml";}
+
+
+
+    <div class="ProfileContent">
+        <div class="Tabs">
+            <partial name="_ManageNav"/>
+        </div>
+        <div class="TabContent">
+            <div class="promo">
+                
+                @RenderBody()
+            </div>
+            </div>
+    </div>
+
+@{
+    
+    RenderSection("Scripts", required: false);
+}
+

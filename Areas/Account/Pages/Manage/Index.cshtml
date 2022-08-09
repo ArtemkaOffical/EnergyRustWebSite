@@ -1,0 +1,29 @@
+@page
+@using EnergyRust.Models
+@model IndexModel
+@inject UserManager<CustomUser> _currentUser
+@{ Layout = "_Layout";}
+@{
+    ViewData["Title"] = "Профиль";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+<div class="ProfileData">
+    <div class="SteamAvatar">
+        <img src="@_currentUser.GetUserAsync(User).Result.SteamAvatar" alt="">
+    </div>
+    <div class="SomeData">
+        <div class="SteamID">
+            <p>StemID:</p>
+            <p>@_currentUser.GetUserAsync(User).Result.SteamId</p>
+        </div>
+        <div class="Balance">
+            <p>Баланс:</p>
+            <p>@_currentUser.GetUserAsync(User).Result.Balance</p>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

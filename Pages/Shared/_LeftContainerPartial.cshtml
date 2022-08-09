@@ -1,0 +1,66 @@
+
+
+@section Scripts
+{
+ 
+    
+    
+}
+    
+    <div class="leftBar">
+        <div class="our_servers">
+            <h5>Для переключения магазина Energy нажми на сервер из списка ниже:</h5>
+        </div>
+        <div class="monitoring">
+            <ul class="servers">
+                @foreach (var server in @Model.Servers)
+                {
+                    <li class="">
+                        <a href="/Products/Server?id=@server.Id">
+                            
+                        <div class="server_info">
+                            <div class="server_name">
+                                <p>@server.Name</p>  
+                            </div>
+                            <div class="players_info">
+                                <div class="active_players">
+                                 <div class="img_online">
+                                    <img src="~/images/online.png" alt="">
+                                </div>
+                                <div class="online_info"> 
+                                    <p>@server.CurentPlayers</p>/<p>@server.MaxPlayers</p>
+                                </div>
+                            
+                            </div>
+                            <div class="offline_players">
+                                <div class="img_sleeping">
+                                    <img src="~/images/sleeping.png" alt="">
+                                </div>
+                               <div class="offline_info">
+                                    <p>@server.Sleepers</p>
+                               </div>
+                            </div>
+                            </div>
+                        </div> 
+                        
+                        </a>
+                        
+                    </li>
+                        
+                }
+            </ul>
+        </div>
+        <div class="someblocks">
+                   
+           
+                </div>
+        <div class="Vk_Widget">
+             <div id="vk_groups">
+                            <script type="text/javascript">
+                                   VK.Widgets.Group("vk_groups", {mode: 4,width:"300", height: "500"}, 177103273);
+                                   </script>
+                        </div>
+        </div>
+        
+    </div>
+

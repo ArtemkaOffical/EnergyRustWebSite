@@ -1,0 +1,148 @@
+@page "{handler?}"
+@using EnergyRust.Models
+@model IndexModel
+@{
+    ViewData["Title"] = "Товары";
+}
+@section Scripts
+{
+    
+    <script >
+      $('form.item').each(function () {
+                      var $this = $(this);
+                      $this.serializeArray()
+                      $this.submit(function (e) {
+                          e.preventDefault();
+                          $.ajax({
+                              type: "POST",
+                              url: "/Products?handler=GetProduct",
+                              beforeSend: function (xhr) {
+                                  xhr.setRequestHeader("X-XSRF-TOKEN", $this.find('input:hidden[name="__RequestVerificationToken"]').val());
+                              },
+                              data: "id=" + $this.find('input:hidden[name="id"]').val(),
+                              success:function(res)
+                              {
+                               $('form.modalItem').each(function () 
+                               {
+                                   var $this = $(this);
+                                   if(res.state ==="failed") return;
+                                    $('.modal-title').text(res.pr.Name);
+                                    $('.ModalProductImage img').attr('src',res.pr.Image);
+                                       $this.find('input:hidden[name="id"]').val(res.pr.Id); 
+                                        $('.ModalProductDesc').text(res.pr.Description)
+                                      $this.find('input:hidden[name="amount"]').val(res.pr.Amount)
+                                      $this.find('input:hidden[name="serverId"]').val(res.pr.ServerId)
+                                      $this.find('input[name="send"]').val("Купить за "+res.pr.Price + " RUB")
+                               });
+                              }
+                          
+                          });
+                      });
+                  })            
+      $('form.modalItem').each(function () {
+                var $this = $(this);
+                $this.serializeArray()
+                $this.submit(function (e) {
+                    e.preventDefault();
+                    $.ajax({
+                        type: "POST",
+                        url: "/Products?handler=AddItem",
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader("X-XSRF-TOKEN", $this.find('input:hidden[name="__RequestVerificationToken"]').val());
+                        },
+                        data: "id=" + $this.find('input:hidden[name="id"]').val()+"&amount="+ $this.find('input:hidden[name="amount"]').val()+"&serverId="+$this.find('input:hidden[name="serverId"]').val(),
+                        success:function(res)
+                        {
+                            if (res.state==="success")
+                            {
+                             
+                                document.querySelector('a.nav-link.text-dark[title="Manage"]').text = res.displayName;
+                            }
+                          M.toast({html:res.result});
+                        }
+                    
+                    });
+                });
+            })
+           
+    </script>
+    
+}
+
+
+<div class="shop">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5> 
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="ModalProductImage">
+                        <img src="" alt="">
+                    </div>
+                    <div class="ModalProductDesc">
+                        
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class=" bttn  bttn-secondary" data-dismiss="modal">Закрыть</button>
+                    <form method="POST" class="modalItem">
+                        <input type="hidden" value="" name="amount"> 
+                        <input type="hidden" value="" name="serverId">
+                        <input type="hidden" value="" name="id"> 
+                        
+                        <input type="submit" name="send" value=""> 
+                    </form>
+                </div> 
+            </div> 
+        </div>
+    </div>
+    
+    <div class="tabs">
+        <div class="category_name"><h4>Категории</h4></div>
+        <div class="list_category">
+            <li class="category"> <form method="get" class="categoryForm" >
+                                                                <input type="hidden" value="0" name="id">
+                                                                <li class="nav-item">
+                                                                    <input type="submit" value="Все"/>
+                                                                </li>
+                                                            </form>
+                                                            </li>
+            @foreach (var category in @Model.Categories)
+            {
+                <li class="category">
+                    <form method="get" class="categoryForm">
+                        <input type="hidden" value="@category.Id" name="id">
+                        <li class="nav-item">
+                            <input type="submit" value="@category.Name"/>
+                        </li>
+                    </form></li>
+
+            }
+        </div>
+    </div>
+    <div class="products">
+        @{
+            foreach (var item in @Model.Products)
+                {
+                    <div class="product @item.Name">
+                        <div class="ProductInfo">
+                            <div class="ProductImage">
+                                <img src=@item.Image alt="">
+                            </div>
+                            <div class="ProductTitle">
+                                <form method="post" class="item product-@item.Id">
+                                    <input type="hidden" value="@item.Id" name="id">
+                                    <button type="submit" class=" bttn  bttn-primary model bttn" data-toggle="modal" data-target="#exampleModal"> @item.Price RUB </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                }
+        }
+   </div>
+</div>

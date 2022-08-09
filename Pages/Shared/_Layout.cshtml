@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Energy-Rust</title>
+    <script type="text/javascript" src="https://vk.com/js/api/openapi.js?169"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    
+    <link rel="stylesheet" href="~/css/site.css" />
+     <!--Import Google Icon Font-->
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+          <!--Import materialize.css-->
+         <link type="text/css" rel="stylesheet" href="~/css/materialize.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="~/css/products.css" />
+    <link rel="stylesheet" href="~/css/custom.css" />
+    <link rel="stylesheet" href="~/css/profile.css" />
+    <link rel="stylesheet" href="~/css/monitoring.css" />
+    <link rel="stylesheet" href="~/css/fonts.css" />
+    <link rel="stylesheet" href="~/css/Admin.css" />
+    <link rel="stylesheet" href="~/css/adaptive.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">EnergyRust</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class=" navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="referens navbar-nav flex-grow-1 ">
+                        <div class="mm">
+                            <li class="nav-item
+">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Главная</a>
+                        </li>
+                        <li class="nav-item
+">
+                            <a class="nav-link text-dark" asp-area="Products" asp-page="/Index">Товары</a>
+                        </li>
+                        <li class="nav-item
+">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Информация</a>
+                        </li>
+                       
+                        </div>
+                        <li class="nav-item
+">
+                            <partial name="_LoginPartial" />
+                        </li>
+                    </ul>
+                
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="wrapper">
+   <div class="container main">
+           <partial name="_LeftContainerPartial"/>
+           <div class="mainContent">
+               <main role="main">
+                   @RenderBody()
+               </main>
+           </div>
+       </div>
+</div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - EnergyRust - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" ></script>
+    <script type="text/javascript" src="~/js/materialize.min.js"></script>
+  
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

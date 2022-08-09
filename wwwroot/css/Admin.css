@@ -1,0 +1,79 @@
+.icons 
+{
+    display: flex;
+    width: 100%;
+    height: 80%;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.icons ul 
+{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+.icons ul li 
+{
+    display: flex;
+    width: 5%;
+    height: 5%;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+.itemDef img 
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+.createProducts 
+{
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.create 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 20%;
+}
+.check 
+{
+    pointer-events: all !important;
+    opacity: 1 !important;
+}
+.itemDef 
+{
+    width: auto !important;
+    height: 65px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+    padding: 5px;
+    border-radius: 15px;
+}
+.CreateItemDef
+{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    flex-direction: column !important;
+    align-content: center !important;
+}

@@ -1,0 +1,24 @@
+﻿@page
+@using EnergyRust.Areas.Account.Pages.Manage
+@model LogoutModel
+@{
+    ViewData["Title"] = "Выход";
+    ViewData["ActivePage"] = ManageNavPages.Logout;
+}
+
+<div>
+    <h1>@ViewData["Title"]</h1>
+    @{
+        if (User.Identity.IsAuthenticated)
+        {
+            <form class="form-inline" asp-area="Account" asp-page="/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                <button type="submit" class="nav-link btn btn-link text-dark">Нажмите для выхода</button>
+            </form>
+        }
+        else
+        {
+            <p>Вы успешно вышли из аккаунта</p>
+        }
+    }
+
+</div>

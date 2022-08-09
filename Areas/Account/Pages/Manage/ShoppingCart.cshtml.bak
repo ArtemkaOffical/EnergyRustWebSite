@@ -1,0 +1,24 @@
+@page
+@model EnergyRust.Areas.Account.Pages.Manage.ShoppingCartModel
+
+@{ 
+    Layout = "~/Areas/Account/Pages/Manage/_Layout.cshtml";
+ViewData["Title"] = "Пополнение баланса";
+    ViewData["ActivePage"] = ManageNavPages.ShoppingCart;
+}
+
+<div class="products">
+    @foreach (var product in Model.Productss)
+    {
+        <div class="product Cart @product.Name">
+            <div class="ProductInfo">
+                <div class="ProductImage">
+                    <img src=@product.Image alt="">
+                </div>
+                <div class="ProductTitle">
+                    <p>@product.Name @product.Server.Name</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>

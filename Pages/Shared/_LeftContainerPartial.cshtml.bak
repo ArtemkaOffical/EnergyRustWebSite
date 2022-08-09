@@ -1,0 +1,49 @@
+
+
+@section Scripts
+{
+ 
+    
+    
+}
+    
+    <div class="leftBar">
+        <div class="our_servers">
+            <h4>Для переключения магазина нажми на сервер ниже</h4>
+        </div>
+        <div class="monitoring">
+            <ul class="servers">
+                @foreach (var server in @Model.Servers)
+                {
+                    <li class="">
+                        <a href="/Products/Server?id=@server.Id">@server.Name</a>
+                        <div class="server_info">
+                            <div class="active_players">
+                                <p>@server.CurentPlayers</p>/<p>@server.MaxPlayers</p>
+                            
+                            </div>
+                            <div class="offline_players">
+                                <p>@server.Sleepers</p>
+
+                            </div>
+                            
+                        </div> 
+                    </li>
+                        
+                }
+            </ul>
+        </div>
+        <div class="someblocks">
+                   
+           
+                </div>
+        <div class="Vk_Widget">
+             <div id="vk_groups">
+                            <script type="text/javascript">
+                                   VK.Widgets.Group("vk_groups", {mode: 4,width:"300", height: "500"}, 177103273);
+                                   </script>
+                        </div>
+        </div>
+        
+    </div>
+

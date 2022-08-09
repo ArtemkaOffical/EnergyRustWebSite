@@ -1,0 +1,110 @@
+@page "{handler?}"
+@model IndexModel
+@{
+   
+    ViewData["title"] = "Admin";
+  
+}
+@section Scripts
+{
+    <script>
+    
+          document.querySelector('.main').style.width = '100%';
+          document.querySelector('.mainContent').style.width ='100%';
+           $('form.u').each(function () {
+                                var $this = $(this);
+                                $this.serializeArray()
+                                $this.submit(function (e) {
+                                    e.preventDefault();
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "/Admin?handler=GetItem",
+                                        beforeSend: function (xhr) {
+                                            xhr.setRequestHeader("X-XSRF-TOKEN", $this.find('input:hidden[name="__RequestVerificationToken"]').val());
+                                        },
+                                        data: "id=" + $this.data('id'),
+                                        success:function(res)
+                                        {
+                                             if(res.state ==="failed") return;
+                                              
+                                             // $('.ModalProductImage img').attr('src',"https://www.rustedit.io/images/imagelibrary/"+res.pr.Image+".png");
+                                                 
+                                                $('input[name="Product.Name"]').val(res.item.DisplayName);
+                                                 $('input[name="Product.ItemId"]').val(res.item.ItemId);
+                                                  $('input[name="Product.Amount"]').val(1);
+                                                $('input[name="Product.Image"]').val("https://www.rustedit.io/images/imagelibrary/"+res.item.ShortName+".png");
+                                        }
+                                    
+                                    });
+                                });
+                            });
+         $('form.CreateItemDef').each(function () {
+                                        var $this = $(this);
+                                        $this.serializeArray()
+                                        $this.submit(function (e) {
+                                            e.preventDefault();
+                                            $.ajax({
+                                                type: "POST",
+                                                url: "/Admin",
+                                                beforeSend: function (xhr) {
+                                                    xhr.setRequestHeader("X-XSRF-TOKEN", $this.find('input:hidden[name="__RequestVerificationToken"]').val());
+                                                },
+                                                data: "Product.Name=" +  $('input[name="Product.Name"]').val()+
+                                                       "&Product.Description=" +$('input[name="Product.Description"]').val() +
+                                                       "&Product.Price="+$('input[name="Product.Price"]').val()+
+                                                       "&Product.IsCommand="+$('input[name="Product.IsCommand"]').is(':checked')+
+                                                       "&Product.ItemId="+$('input[name="Product.ItemId"]').val()+
+                                                       "&Product.Amount="+$('input[name="Product.Amount"]').val()+
+                                                       "&Product.Command="+$('input[name="Product.Command"]').val()+
+                                                       "&Product.Image="+$('input[name="Product.Image"]').val()+
+                                                       "&Product.CategoryId="+$('input[name="Product.CategoryId"]').val()+
+                                                       "&Product.ServerId="+$('input[name="Product.ServerId"]').val(),
+                                                success:function(res)
+                                                {
+                                                    
+                                                        M.toast({html:res.result});
+                                                    
+                                                }
+                                            
+                                            });
+                                        });
+                                    })
+    </script>
+}
+<div class="createProducts">
+    <div class="create">
+            <form class="CreateItemDef" method="POST">
+                <div><label>Имя</label><br /><input asp-for="Product.Name" /></div>
+                <div><label>Описание</label><br /><input asp-for="Product.Description" /></div>
+                <div><label>Цена</label><br /><input asp-for="Product.Price" required /></div>
+                <div style="display: flex;">
+                    <label style="display: flex;width: 50%;height: auto;">Команда?</label><br/>
+                    <input style="display: flex;width: 50%;" class="check" type="checkbox" asp-for="Product.IsCommand"/>
+                </div>
+                <div><label>ID Предмета</label><br /><input asp-for="Product.ItemId" required /></div>
+                <div><label>Кол-во</label><br /><input asp-for="Product.Amount" /></div>
+                <div><label>Команда</label><br /><input asp-for="Product.Command" /></div>
+                <div><label>Изображение</label><br /><input asp-for="Product.Image" required /></div>
+                <div><label>ID категории</label><br /><input asp-for="Product.CategoryId" required /></div>
+                 <div><label>ID сервера</label><br /><input asp-for="Product.ServerId" required /></div>
+                <input type="submit" value="Отправить" />
+            </form>
+        </div>
+    <div class="products">
+
+        @for (int i = 0; i < @Model.ItemDefinitions.Count; i++)
+        {
+            <div class="product itemDef">
+                <form method="POST" class="u" data-id="@Model.ItemDefinitions[i].Id" >
+                    <button type="submit">
+                         <img src=@Html.Raw(string.Format("https://www.rustedit.io/images/imagelibrary/{0}.png",
+                                      @Model.ItemDefinitions[i].ShortName)) alt="">
+                    </button>
+                </form>
+            </div>
+        }
+    </div>
+</div>
+    
+    
+    

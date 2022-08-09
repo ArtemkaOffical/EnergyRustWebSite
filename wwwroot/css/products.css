@@ -1,0 +1,292 @@
+.shop
+{
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.bttn-danger.focus, .bttn-danger:focus {
+    box-shadow: none;border-radius: 15px;
+}
+
+.bttn-danger{
+    background: none;
+    border-color: transparent;
+    color: black;
+
+    border-radius:  15px;
+}
+.bttn-danger:not(:disabled):not(.disabled).active, .bttn-danger:not(:disabled):not(.disabled):active, .show>.bttn-danger.dropdown-toggle {
+    color: #fff;
+    background-color:transparent;
+    border-color: transparent;
+}
+.dropdown-menu.show{
+    position: absolute;
+    will-change: transform;
+    top: 0px;
+    display: flex;
+    left: 0px;
+    transform: translate3d(275px, 156px, 0px);
+    height: auto;
+    width: auto;
+    border-radius:  15px;
+}
+form input[type='submit']:hover {
+    background: #777777;
+    color: white;
+    font-weight: bold;
+}
+form input[type='submit'] {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    height: 100%;
+    color: black;
+    border-color: transparent;
+    background: #b3b3b3;
+    border-radius: 15px;
+}
+.bttn-danger:not(:disabled):not(.disabled).active:focus, .bttn-danger:not(:disabled):not(.disabled):active:focus, .show>.bttn-danger.dropdown-toggle:focus {
+    box-shadow: none;
+}
+.bttn-danger:hover {
+    color: #fff;
+    background-color: #00000059;
+    border-color: transparent;
+}
+.category_name{display: flex;
+    align-content: center;
+    width: 100%;
+    justify-content: center;
+    height: 50%;}
+.category
+{
+    margin-right: 2px;
+    display: flex;
+    margin-left: 2px;
+    height: 40px;
+    width: 130px;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin:5px;
+}
+.category form li
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+}
+.category form
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+.list_category {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    padding-bottom: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.tabs {
+    background: #d0d0d0;
+    width: 95%;
+    height: 10%;
+    display: flex;
+    border: 3px solid #00000017;
+    border-radius: 15px;
+    margin: 15px;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+.bttn:hover, .bttn-primary:hover {
+    color:white;
+    background:grey;
+}
+.bttn, .bttn-primary {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    border-radius: 12px;
+    border: 3px solid #00000017;
+    background: #d0d0d0;
+    justify-content: center;
+}
+form {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+.categories {
+    flex-direction: row;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.modal-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    width: 100%;
+    height: 80%;
+}
+.modal-footer
+{
+    height: 10% !important;
+    width: 100% !important;
+}
+.bttn-primary:not(:disabled):not(.disabled).active, .bttn-primary:not(:disabled):not(.disabled):active, .show>.bttn-primary.dropdown-toggle {
+
+    background-color:transparent;
+    border-color: transparent;
+}
+
+.bttn-primary.focus, .bttn-primary:focus {
+    box-shadow: none;
+    border: 0px;
+}
+.products {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 3px solid #00000017;
+    width: 95%;
+    height: auto;
+    background: #d0d0d0;
+    flex-wrap: wrap;
+    border-radius: 15px;
+    margin: 15px;
+}
+.dropdown-item.active, .dropdown-item:active {
+
+    background: transparent;
+}
+.product {
+    background: #ececec;
+    width: 170px;
+    height: 150px;
+    border: 3px solid #00000017;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+    padding: 5px;
+    border-radius: 15px;
+}
+.modelbttn:hover {
+    background: #bdbdbd;
+    border-color: transparent;
+}
+.modelbttn {
+    font-weight: bold;
+    color: black;
+    background: transparent;
+    border-color: transparent;
+}
+.ProductInfo
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+.ModalProductImage img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+}
+.ModalProductImage
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 15px;
+    height: 65%;
+}
+.ProductImage img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 15px;
+    height: 100%;
+}
+form input[type='submit'] {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    height: 100%;
+}
+.ModalProductDesc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    word-break: break-all;
+    height: 35%;
+    border-radius: 15px;
+    color: black;
+    background: #eaeaea;
+    text-anchor: middle;
+}
+.modal-content {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.modal-header {
+    width: 100%;
+    height: 10%;
+}
+.ProductImage
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 15px;
+    height: 70%;
+    background: #d3d6d3;
+}
+.ProductTitle
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 15px;
+    height: 25%;
+}

@@ -1,0 +1,14 @@
+@page "{handler?}"
+@{ Layout = "~/Areas/Account/Pages/Manage/_Layout.cshtml";}
+@model PromoModel
+
+@{
+    ViewData["Title"] = "Промокод";
+    ViewData["ActivePage"] = ManageNavPages.Promo;
+}
+
+    <form method="post" class="form_promo">
+        <input type="text" placeholder="Введите промокод" name="promoKey">
+        <input type="submit" value="Активировать">
+    </form>
+

@@ -1,0 +1,119 @@
+html
+{
+    height: 100%;
+}
+body
+{
+    display: flex;flex-direction: column; 
+    height: 100%
+}
+.AuthInfo form button{display: flex;
+    width: 100%;
+    height: 100%;}
+#external-account{display: flex;
+     width: auto;
+    height: 100%;
+    border-radius: 15px;}
+.AuthInfo
+{
+    display: flex;
+    width: 100%;
+    /* height: 150px; */
+    height: auto;
+    margin: 10%;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.form-group input[type="email"] {
+    font-size: 30px;
+    height: 40px;
+}
+.mainExternal form {
+    flex-direction: column;
+}
+.mainExternal {
+    display: flex;
+    padding: 15px;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
+footer
+{
+    flex:0 0 auto;
+    background: #f7f7f7;
+}
+.bg-white {
+    background-color: #cecece !important;
+}
+header
+{
+    background: #f7f7f7;
+    flex: 0 0 auto
+}
+.wrapper
+{
+    flex:1 0 auto;
+    background: #f7f7f7;
+}
+main{display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    align-content: center;}
+.leftBar {
+    display: flex;
+    border: 3px solid #00000017;
+    background: #f3f3f3;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    width: 30%;
+    border-radius: 15px;
+    height: auto;
+}
+.main
+{
+    height: auto;
+    display: flex;
+    background: #ffffffcf;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    border-radius: 15px;
+    margin-top: 15px;
+    padding: 15px;
+}
+
+.mm
+{
+    display: flex;
+}
+.referens 
+{
+    flex-wrap: nowrap;
+justify-content: space-between;
+}
+
+
+
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    width: 68%;
+    border: 3px solid #00000017;
+    justify-content: flex-start;
+    background: #f3f3f3;
+    border-radius: 15px;
+    height: auto;
+}

@@ -1,0 +1,29 @@
+@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Авторизация";
+}
+
+
+    <div class="AuthInfo">
+     
+            @{
+                
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        
+                                @foreach (var provider in Model.ExternalLogins)
+                                {
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name">Авторизоваться через @provider.DisplayName</button>
+                                }
+                           
+                    </form>
+                
+            }
+      
+    </div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
